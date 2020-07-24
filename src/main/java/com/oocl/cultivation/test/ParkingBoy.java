@@ -1,8 +1,11 @@
 package com.oocl.cultivation.test;
 
+
+
 public class ParkingBoy {
 
-    public boolean parking(Car car) {
-        return false;
+    public ParkingTicket parking(Car car) {
+        ParkingTicket parkingTicket = new ParkingTicket("T001");
+        return parkingTicket;
     }
 }
