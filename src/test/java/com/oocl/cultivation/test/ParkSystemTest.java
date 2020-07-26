@@ -38,5 +38,22 @@ public class ParkSystemTest {
 
     }
 
+    @Test
+    void should_return_two_ticket_when_parking_given_two_cars_and_parking_boy(){
+        //given
+        String firstCarNumber = "A001";
+        String secondCarNumber = "A002";
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car car = new Car(firstCarNumber);
+        ParkingTicket parkingTicket = new ParkingTicket(secondCarNumber);
+
+        //when
+        ParkingTicket firstTicket = new ParkingTicket(firstCarNumber);
+        ParkingTicket secondTicket = new ParkingTicket(secondCarNumber);
+        //then
+        Assertions.assertNotNull(firstTicket);
+        Assertions.assertNotNull(secondTicket);
+    }
+
 
 }
