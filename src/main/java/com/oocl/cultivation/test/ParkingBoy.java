@@ -1,15 +1,17 @@
 package com.oocl.cultivation.test;
 
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class ParkingBoy {
-    private int parkingLotCapacity = 3;
 
-    public int getParkingLotCapacity() {
-        return parkingLotCapacity;
-    }
+    private List<ParkingLot> parkingLots = new LinkedList<>();
 
-    public void setParkingLotCapacity(int parkingLotCapacity) {
-        this.parkingLotCapacity = parkingLotCapacity;
+    public ParkingBoy(ParkingLot... parkingLots) {
+        for (ParkingLot parkingLot : parkingLots) {
+            this.parkingLots.add(parkingLot);
+        }
     }
 
     public ParkingTicket parking(Car car) {
@@ -19,12 +21,16 @@ public class ParkingBoy {
         if (car.isParked()) {
             return null;
         }
-        if (this.parkingLotCapacity <= 0) {
-            return null;
+
+        for (ParkingLot parkingLot : this.parkingLots) {
+            if (parkingLot.getAvailableCapacity() != 0) {
+                ParkingTicket ticket = parkingLot.parkingCarTOParkingLot(car);
+                return ticket;
+            }
         }
         car.setParked(true);
-        this.parkingLotCapacity--;
-        return new ParkingTicket(car.getCarNumber());
+
+        return null;
     }
 
     public Car fetchCar(ParkingTicket parkingTicket) {

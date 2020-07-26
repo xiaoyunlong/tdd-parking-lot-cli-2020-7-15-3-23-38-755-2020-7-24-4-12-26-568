@@ -11,7 +11,7 @@ public class ParkSystemTest {
     void should_return_a_parking_ticket_when_parking_given_car_parking_boy(){
         //given
         String carNumber = "A001";
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car car = new Car(carNumber);
 
         //when
@@ -26,7 +26,7 @@ public class ParkSystemTest {
     void should_return_correct_car_when_fetch_car_given_ticket_and_car_in_parking_lot_and_parking_boy(){
         //given
         String carNumber = "A001";
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car car = new Car(carNumber);
         ParkingTicket parkingTicket = new ParkingTicket(carNumber);
 
@@ -43,7 +43,7 @@ public class ParkSystemTest {
         //given
         String firstTickNumber = "A001";
         String secondTickNumber = "A002";
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         ParkingTicket firstTicket = new ParkingTicket(firstTickNumber);
         ParkingTicket secondTicket = new ParkingTicket(secondTickNumber);
         Car firstCar = new Car(firstTickNumber);
@@ -63,7 +63,7 @@ public class ParkSystemTest {
         //given
         String firstCarNumber = "A001";
         String secondCarNumber = "A002";
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         Car firstCar = new Car(firstCarNumber);
         Car secondCar = new Car(secondCarNumber);
 
@@ -79,7 +79,7 @@ public class ParkSystemTest {
     void should_return_null_when_fetch_car_given_wrong_ticket_and_parking_boy(){
         //given
         String ticketNumber = "Wrong";
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         ParkingTicket wrongTicket = new ParkingTicket(ticketNumber);
 
         //when
@@ -92,7 +92,7 @@ public class ParkSystemTest {
     @Test
     void should_return_null_when_fetch_car_given_no_ticket_and_parking_boy(){
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
 
         //when
         Car car = parkingBoy.fetchCar(null);
@@ -105,7 +105,7 @@ public class ParkSystemTest {
     void should_return_null_when_fetch_car_given_used_ticket_and_parking_boy(){
         //given
         String ticketNumber = "A001";
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingBoy parkingBoy = new ParkingBoy(new ParkingLot());
         ParkingTicket ticket =  new ParkingTicket(ticketNumber);
         Car firstFetchCar = parkingBoy.fetchCar(ticket);
 
@@ -119,7 +119,8 @@ public class ParkSystemTest {
     @Test
     void should_return_null_when_parking_boy_parking_car_given_car_and_no_position_parking_lot() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
         int parkingCarIndex = 0;
         String[] carNumber = {"A001","A002","A003"};
         for ( ; parkingCarIndex < 3; parkingCarIndex++) {
@@ -199,14 +200,17 @@ public class ParkSystemTest {
     @Test
     void should_return_not_enough_position_when_query_error_message_given_car_and_parkingLot_without_position() {
         //given
-        ParkingBoy parkingBoy = new ParkingBoy();
-        parkingBoy.setParkingLotCapacity(0);
+        ParkingLot parkingLot = new ParkingLot();
+        ParkingBoy parkingBoy = new ParkingBoy(parkingLot);
+        parkingLot.setAvailableCapacity(0);
         parkingBoy.parking(new Car("A001"));
         //when
         String errorMessage = parkingBoy.queryParkingMessage(parkingBoy);
         //then
         Assertions.assertEquals("Not enough position.",errorMessage);
     }
+
+    //Story 3
 
 
 
