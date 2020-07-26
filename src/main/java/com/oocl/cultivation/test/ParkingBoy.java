@@ -5,9 +5,13 @@ public class ParkingBoy {
     private int parkingLotCapacity = 3;
 
     public ParkingTicket parking(Car car) {
+        if(car.isParked()){
+            return null;
+        }
         if (this.parkingLotCapacity <= 0) {
             return null;
         }
+        car.setParked(true);
         this.parkingLotCapacity--;
         return new ParkingTicket(car.getCarNumber());
     }
