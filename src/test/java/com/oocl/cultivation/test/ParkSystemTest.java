@@ -41,6 +41,26 @@ public class ParkSystemTest {
     @Test
     void should_return_two_ticket_when_parking_given_two_cars_and_parking_boy(){
         //given
+        String firstTickNumber = "A001";
+        String secondTickNumber = "A002";
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket firstTicket = new ParkingTicket(firstTickNumber);
+        ParkingTicket secondTicket = new ParkingTicket(secondTickNumber);
+        Car firstCar = new Car(firstTickNumber);
+        Car secondCar = new Car(secondTickNumber);
+
+        //when
+        Car firstResultCar = parkingBoy.fetchCar(firstTicket);
+        Car secondResultCar = parkingBoy.fetchCar(secondTicket);
+        //then
+        Assertions.assertEquals(firstCar.getCarNumber(),firstResultCar.getCarNumber());
+        Assertions.assertEquals(secondCar.getCarNumber(),secondResultCar.getCarNumber());
+
+    }
+
+    @Test
+    void should_return_two_cars_when_fetch_car_given_two_tickets_and_two_cars_in_parking_lot_and_parking_boy(){
+        //given
         String firstCarNumber = "A001";
         String secondCarNumber = "A002";
         ParkingBoy parkingBoy = new ParkingBoy();
