@@ -116,6 +116,21 @@ public class ParkSystemTest {
         Assertions.assertNull(secondFetchCar);
     }
 
+    @Test
+    void should_return_null_when_parking_boy_parking_car_given_car_and_no_position_parking_lot() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        int parkingCarIndex = 0;
+        String[] carNumber = {"A001","A002","A003"};
+        for ( ; parkingCarIndex < 3; parkingCarIndex++) {
+            parkingBoy.parking(new Car(carNumber[parkingCarIndex]));
+        }
+        //when
+        ParkingTicket ticket = parkingBoy.parking(new Car("A004"));
+        //then
+        Assertions.assertNull(ticket);
+    }
+
 
 
 
