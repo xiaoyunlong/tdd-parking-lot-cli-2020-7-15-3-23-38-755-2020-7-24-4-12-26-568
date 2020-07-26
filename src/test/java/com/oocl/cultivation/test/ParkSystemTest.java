@@ -10,8 +10,9 @@ public class ParkSystemTest {
     @Test
     void should_return_a_parking_ticket_when_parking_given_car_parking_boy(){
         //given
+        String carNumber = "A001";
         ParkingBoy parkingBoy = new ParkingBoy();
-        Car car = new Car();
+        Car car = new Car(carNumber);
 
         //when
         ParkingTicket parkingTicket = parkingBoy.parking(car);

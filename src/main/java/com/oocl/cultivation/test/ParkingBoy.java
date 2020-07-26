@@ -6,6 +6,6 @@ public class ParkingBoy {
 
     public ParkingTicket parking(Car car) {
 
-        return new ParkingTicket();
+        return new ParkingTicket(car.getCarNumber());
     }
 }
