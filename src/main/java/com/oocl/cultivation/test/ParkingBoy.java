@@ -4,6 +4,14 @@ package com.oocl.cultivation.test;
 public class ParkingBoy {
     private int parkingLotCapacity = 3;
 
+    public int getParkingLotCapacity() {
+        return parkingLotCapacity;
+    }
+
+    public void setParkingLotCapacity(int parkingLotCapacity) {
+        this.parkingLotCapacity = parkingLotCapacity;
+    }
+
     public ParkingTicket parking(Car car) {
         if (car == null) {
             return null;
@@ -35,16 +43,19 @@ public class ParkingBoy {
     }
 
     public String queryMessage(ParkingTicket ticket) {
-
-        if (ticket == null){
+        if (ticket == null) {
             return "Please provide your parking ticket.";
         }
-        if(ticket.getTicketNumber().equals("Wrong")){
+        if (ticket.getTicketNumber().equals("Wrong")) {
             return "Unrecognized parking ticket.";
         }
-        if (ticket.isUsed()){
+        if (ticket.isUsed()) {
             return "Unrecognized parking ticket.";
         }
         return "ok";
+    }
+
+    public String queryParkingMessage(ParkingBoy parkingBoy) {
+        return null;
     }
 }
