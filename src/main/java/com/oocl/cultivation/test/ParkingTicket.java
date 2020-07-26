@@ -3,6 +3,7 @@ package com.oocl.cultivation.test;
 public class ParkingTicket {
     private String ticketNumber;
     private boolean used;
+    private ParkingLot correctParkingLot;
 
     public ParkingTicket(String ticketNumber) {
         this.ticketNumber = ticketNumber;
@@ -19,5 +20,13 @@ public class ParkingTicket {
 
     public void setUsed(boolean used) {
         this.used = used;
+    }
+
+    public ParkingLot getCorrectParkingLot() {
+        return correctParkingLot;
+    }
+
+    public void setCorrectParkingLot(ParkingLot correctParkingLot) {
+        this.correctParkingLot = correctParkingLot;
     }
 }

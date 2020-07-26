@@ -212,6 +212,25 @@ public class ParkSystemTest {
 
     //Story 3
 
+    //story 4
+    @Test
+    void should_return_ticket_with_correct_parking_lot_when_smart_parking_boy_parking_given_three_parking_lot_and_car(){
+        //given
+        ParkingLot firstParkingLot = new ParkingLot();
+        firstParkingLot.setAvailableCapacity(5);
+        ParkingLot secondParkingLot = new ParkingLot();
+        secondParkingLot.setAvailableCapacity(6);
+        ParkingLot thirdParkingLot = new ParkingLot();
+        thirdParkingLot.setAvailableCapacity(7);
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        Car car = new Car("A001");
+        //when
+        ParkingTicket smartTicket = smartParkingBoy.parking(car);
+
+        //then
+        Assertions.assertEquals(thirdParkingLot,smartTicket.getCorrectParkingLot());
+    }
+
 
 
 
