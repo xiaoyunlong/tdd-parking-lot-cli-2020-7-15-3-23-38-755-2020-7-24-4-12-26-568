@@ -56,6 +56,7 @@ public class ParkingBoy {
     }
 
     public String queryParkingMessage(ParkingBoy parkingBoy) {
-        return null;
+
+        return "Not enough position.";
     }
 }
