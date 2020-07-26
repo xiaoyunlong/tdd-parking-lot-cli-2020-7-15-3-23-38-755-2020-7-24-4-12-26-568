@@ -8,4 +8,8 @@ public class ParkingBoy {
 
         return new ParkingTicket(car.getCarNumber());
     }
+
+    public Car fetchCar(ParkingTicket parkingTicket) {
+        return new Car("0000");
+    }
 }
