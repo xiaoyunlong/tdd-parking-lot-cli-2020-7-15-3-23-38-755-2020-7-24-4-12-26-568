@@ -75,6 +75,20 @@ public class ParkSystemTest {
         Assertions.assertNotNull(secondTicket);
     }
 
+    @Test
+    void should_return_null_when_fetch_car_given_wrong_ticket_and_parking_boy(){
+        //given
+        String ticketNumber = "Wrong";
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket wrongTicket = new ParkingTicket(ticketNumber);
+
+        //when
+        Car result  = parkingBoy.fetchCar(wrongTicket);
+
+        //then
+        Assertions.assertNull(result);
+    }
+
 
 
 
