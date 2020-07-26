@@ -156,6 +156,21 @@ public class ParkSystemTest {
         Assertions.assertNull(ticket);
     }
 
+    //Story 2
+    @Test
+    void should_return_unrecognized_parking_ticket_when_query_error_message_given_wrong_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+        String ticketNumber = "Wrong";
+        ParkingTicket wrongTicket = new ParkingTicket(ticketNumber);
+        parkingBoy.fetchCar(wrongTicket);
+        //when
+        String errorMessage = parkingBoy.queryMessage();
+        //then
+        Assertions.assertEquals("Unrecognized parking ticket.",errorMessage);
+
+    }
+
 
 
 

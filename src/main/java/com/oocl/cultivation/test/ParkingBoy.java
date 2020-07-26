@@ -33,4 +33,8 @@ public class ParkingBoy {
         parkingTicket.setUsed(true);
         return new Car(parkingTicket.getTicketNumber());
     }
+
+    public String queryMessage() {
+        return null;
+    }
 }
