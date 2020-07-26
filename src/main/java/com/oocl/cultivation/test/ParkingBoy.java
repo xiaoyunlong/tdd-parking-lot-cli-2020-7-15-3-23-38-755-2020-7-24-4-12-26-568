@@ -16,6 +16,10 @@ public class ParkingBoy {
         if(parkingTicket.getTicketNumber().equals("Wrong")){
             return null;
         }
+        if(parkingTicket.isUsed()){
+            return null;
+        }
+        parkingTicket.setUsed(true);
         return new Car(parkingTicket.getTicketNumber());
     }
 }

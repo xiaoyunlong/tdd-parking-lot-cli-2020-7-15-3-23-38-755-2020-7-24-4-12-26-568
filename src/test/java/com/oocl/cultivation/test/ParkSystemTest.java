@@ -90,7 +90,7 @@ public class ParkSystemTest {
     }
 
     @Test
-    void should_return_null_when_parking_given_no_ticket_and_parking_boy(){
+    void should_return_null_when_fetch_car_given_no_ticket_and_parking_boy(){
         //given
         ParkingBoy parkingBoy = new ParkingBoy();
 
@@ -100,6 +100,23 @@ public class ParkSystemTest {
         //then
         Assertions.assertNull(car);
     }
+
+    @Test
+    void should_return_null_when_fetch_car_given_used_ticket_and_parking_boy(){
+        //given
+        String ticketNumber = "A001";
+        ParkingBoy parkingBoy = new ParkingBoy();
+        ParkingTicket ticket =  new ParkingTicket(ticketNumber);
+        Car firstFetchCar = parkingBoy.fetchCar(ticket);
+
+        //when
+        Car secondFetchCar = parkingBoy.fetchCar(ticket);
+
+        //then
+        Assertions.assertNull(secondFetchCar);
+    }
+
+
 
 
 
