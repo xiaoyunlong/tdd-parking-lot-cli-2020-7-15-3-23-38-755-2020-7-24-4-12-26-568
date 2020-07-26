@@ -185,6 +185,17 @@ public class ParkSystemTest {
 
     }
 
+    @Test
+    void should_return_please_provide_ticket_when_query_error_message_given_without_ticket() {
+        //given
+        ParkingBoy parkingBoy = new ParkingBoy();
+
+        //when
+        String errorMessage = parkingBoy.queryMessage(null);
+        //then
+        Assertions.assertEquals("Please provide your parking ticket.",errorMessage);
+    }
+
 
 
 

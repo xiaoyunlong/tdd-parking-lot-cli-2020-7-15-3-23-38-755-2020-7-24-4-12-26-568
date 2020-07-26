@@ -35,6 +35,7 @@ public class ParkingBoy {
     }
 
     public String queryMessage(ParkingTicket ticket) {
+
         if(ticket.getTicketNumber().equals("Wrong")){
             return "Unrecognized parking ticket.";
         }
