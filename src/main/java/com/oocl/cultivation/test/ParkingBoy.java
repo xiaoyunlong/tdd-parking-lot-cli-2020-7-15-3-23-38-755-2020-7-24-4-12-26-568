@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ParkingBoy {
 
-    private List<ParkingLot> parkingLots = new LinkedList<>();
+    protected List<ParkingLot> parkingLots = new LinkedList<>();
 
     public ParkingBoy(ParkingLot... parkingLots) {
         for (ParkingLot parkingLot : parkingLots) {

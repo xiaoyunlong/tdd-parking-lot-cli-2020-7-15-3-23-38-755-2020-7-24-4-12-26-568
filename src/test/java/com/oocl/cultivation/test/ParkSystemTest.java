@@ -222,7 +222,7 @@ public class ParkSystemTest {
         secondParkingLot.setAvailableCapacity(6);
         ParkingLot thirdParkingLot = new ParkingLot();
         thirdParkingLot.setAvailableCapacity(7);
-        SmartParkingBoy smartParkingBoy = new SmartParkingBoy();
+        SmartParkingBoy smartParkingBoy = new SmartParkingBoy(firstParkingLot,secondParkingLot,thirdParkingLot);
         Car car = new Car("A001");
         //when
         ParkingTicket smartTicket = smartParkingBoy.parking(car);
