@@ -34,7 +34,7 @@ public class ParkingBoy {
         return new Car(parkingTicket.getTicketNumber());
     }
 
-    public String queryMessage() {
+    public String queryMessage(ParkingTicket ticket) {
         return "Unrecognized parking ticket.";
     }
 }
