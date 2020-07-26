@@ -44,16 +44,18 @@ public class ParkSystemTest {
         String firstCarNumber = "A001";
         String secondCarNumber = "A002";
         ParkingBoy parkingBoy = new ParkingBoy();
-        Car car = new Car(firstCarNumber);
-        ParkingTicket parkingTicket = new ParkingTicket(secondCarNumber);
+        Car firstCar = new Car(firstCarNumber);
+        Car secondCar = new Car(secondCarNumber);
 
         //when
-        ParkingTicket firstTicket = new ParkingTicket(firstCarNumber);
-        ParkingTicket secondTicket = new ParkingTicket(secondCarNumber);
+        ParkingTicket firstTicket = parkingBoy.parking(firstCar);
+        ParkingTicket secondTicket = parkingBoy.parking(secondCar);
         //then
         Assertions.assertNotNull(firstTicket);
         Assertions.assertNotNull(secondTicket);
     }
+
+
 
 
 }
