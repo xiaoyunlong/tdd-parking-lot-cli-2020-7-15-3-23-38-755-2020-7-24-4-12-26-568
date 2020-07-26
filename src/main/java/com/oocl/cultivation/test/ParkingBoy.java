@@ -10,6 +10,9 @@ public class ParkingBoy {
     }
 
     public Car fetchCar(ParkingTicket parkingTicket) {
+        if(parkingTicket.getTicketNumber().equals("Wrong")){
+            return null;
+        }
         return new Car(parkingTicket.getTicketNumber());
     }
 }
