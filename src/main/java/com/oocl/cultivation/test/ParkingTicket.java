@@ -7,5 +7,7 @@ public class ParkingTicket {
         this.ticketNumber = ticketNumber;
     }
 
-
+    public String getTicketNumber() {
+        return ticketNumber;
+    }
 }
