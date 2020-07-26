@@ -131,6 +131,20 @@ public class ParkSystemTest {
         Assertions.assertNull(ticket);
     }
 
+    @Test
+    void should_return_null_when_parking_given_parked_car_parking_boy(){
+        //given
+        String carNumber = "A001";
+        ParkingBoy parkingBoy = new ParkingBoy();
+        Car car = new Car(carNumber);
+        ParkingTicket ticket = parkingBoy.parking(car);
+        //when
+        ParkingTicket result = parkingBoy.parking(car);
+
+        //then
+        Assertions.assertNull(result);
+    }
+
 
 
 
