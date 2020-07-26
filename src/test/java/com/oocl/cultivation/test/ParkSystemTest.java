@@ -250,10 +250,10 @@ public class ParkSystemTest {
         SupperSmartParkingBoy supperSmartParkingBoy = new SupperSmartParkingBoy(firstParkingLot,secondParkingLot,thirdParkingLot);
         Car car = new Car("A001");
         //when
-        ParkingTicket smartTicket = supperSmartParkingBoy.parking(car);
+        ParkingTicket supperSmartTicket = supperSmartParkingBoy.parking(car);
 
         //then
-        Assertions.assertEquals(secondParkingLot,smartTicket.getCorrectParkingLot());
+        Assertions.assertEquals(secondParkingLot,supperSmartTicket.getCorrectParkingLot());
     }
 
 
