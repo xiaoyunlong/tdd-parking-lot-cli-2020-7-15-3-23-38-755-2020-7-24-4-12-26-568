@@ -35,6 +35,6 @@ public class ParkingBoy {
     }
 
     public String queryMessage() {
-        return null;
+        return "Unrecognized parking ticket.";
     }
 }
